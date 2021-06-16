@@ -5,6 +5,7 @@
  */
 package shoemanagementsystem;
 
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +22,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,12 +37,16 @@ public class forgetPass extends javax.swing.JFrame {
 
     int xMouse;
     int yMouse;
+
     /**
      * Creates new form forgetPass
      */
     public forgetPass() {
         initComponents();
         disableComponents();
+
+        newPassEyeBtn.setVisible(false);
+        confirmPassEyeBtn.setVisible(false);
     }
 
     void disableComponents() {
@@ -57,6 +63,7 @@ public class forgetPass extends javax.swing.JFrame {
         confirmPassTf.setEnabled(false);
 
         doneBtn.setEnabled(false);
+
     }
 
     void enableComponents() {
@@ -72,6 +79,7 @@ public class forgetPass extends javax.swing.JFrame {
         doneBtn.setEnabled(true);
 
     }
+    String existed_email;
 
     public void getEmail(int id) {
         try {
@@ -82,7 +90,8 @@ public class forgetPass extends javax.swing.JFrame {
 
             rs = st.executeQuery();
             if (rs.next()) {
-                emailTF.setText(rs.getString("o_email"));
+                existed_email = rs.getString("o_email");
+                emailTF.setText(existed_email);
             }
 
         } catch (SQLException ex) {
@@ -111,11 +120,13 @@ public class forgetPass extends javax.swing.JFrame {
         emailTF = new javax.swing.JTextField();
         verifyBtn = new javax.swing.JButton();
         passwordPanel = new javax.swing.JPanel();
-        newPassTf = new javax.swing.JTextField();
         newPassLbl = new javax.swing.JLabel();
         doneBtn = new javax.swing.JButton();
         confirmPassLbl = new javax.swing.JLabel();
-        confirmPassTf = new javax.swing.JTextField();
+        newPassTf = new javax.swing.JPasswordField();
+        confirmPassTf = new javax.swing.JPasswordField();
+        newPassEyeBtn = new javax.swing.JButton();
+        confirmPassEyeBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -131,38 +142,44 @@ public class forgetPass extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(18, 18, 18));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Reset Password");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("X");
+        jLabel4.setToolTipText("Close");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
             }
         });
 
-        emailPanel.setBackground(new java.awt.Color(51, 51, 51));
+        emailPanel.setBackground(new java.awt.Color(18, 18, 18));
         emailPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email Verification", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         emailPanel.setForeground(new java.awt.Color(255, 255, 255));
 
-        codeTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codeTFActionPerformed(evt);
+        codeTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                codeTFKeyPressed(evt);
             }
         });
 
-        sendBtn.setBackground(new java.awt.Color(255, 255, 255));
+        sendBtn.setBackground(new java.awt.Color(187, 134, 252));
         sendBtn.setText("Send code");
         sendBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sendBtnActionPerformed(evt);
+            }
+        });
+        sendBtn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                sendBtnKeyPressed(evt);
             }
         });
 
@@ -176,17 +193,22 @@ public class forgetPass extends javax.swing.JFrame {
         mailLbl.setForeground(new java.awt.Color(255, 255, 255));
         mailLbl.setText("Enter your email");
 
-        emailTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTFActionPerformed(evt);
+        emailTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                emailTFKeyPressed(evt);
             }
         });
 
-        verifyBtn.setBackground(new java.awt.Color(102, 102, 255));
+        verifyBtn.setBackground(new java.awt.Color(187, 134, 252));
         verifyBtn.setText("Verify code");
         verifyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verifyBtnActionPerformed(evt);
+            }
+        });
+        verifyBtn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                verifyBtnKeyPressed(evt);
             }
         });
 
@@ -194,83 +216,158 @@ public class forgetPass extends javax.swing.JFrame {
         emailPanel.setLayout(emailPanelLayout);
         emailPanelLayout.setHorizontalGroup(
             emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, emailPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(codeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sendBtn)
+                    .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(verifyBtn))
+                .addGap(96, 96, 96))
             .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(emailPanelLayout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(verifyBtn)
-                        .addGroup(emailPanelLayout.createSequentialGroup()
-                            .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(mailLbl)
-                                .addComponent(codeLbl))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(sendBtn, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(emailTF, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(codeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addContainerGap(140, Short.MAX_VALUE)))
+                        .addComponent(mailLbl)
+                        .addComponent(codeLbl))
+                    .addContainerGap(319, Short.MAX_VALUE)))
         );
         emailPanelLayout.setVerticalGroup(
             emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 192, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, emailPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(codeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(verifyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
             .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(emailPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(emailPanelLayout.createSequentialGroup()
-                            .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(mailLbl)
-                                .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(sendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(33, 33, 33)
-                            .addComponent(codeLbl))
-                        .addComponent(codeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(verifyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(mailLbl)
+                    .addGap(76, 76, 76)
+                    .addComponent(codeLbl)
+                    .addContainerGap(54, Short.MAX_VALUE)))
         );
 
-        passwordPanel.setBackground(new java.awt.Color(51, 51, 51));
+        passwordPanel.setBackground(new java.awt.Color(18, 18, 18));
         passwordPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password Verification", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         passwordPanel.setForeground(new java.awt.Color(255, 255, 255));
-        passwordPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        newPassTf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newPassTfActionPerformed(evt);
-            }
-        });
-        passwordPanel.add(newPassTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 169, 32));
 
         newPassLbl.setBackground(new java.awt.Color(255, 255, 255));
         newPassLbl.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         newPassLbl.setForeground(new java.awt.Color(255, 255, 255));
         newPassLbl.setText("Enter new password");
-        passwordPanel.add(newPassLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        doneBtn.setBackground(new java.awt.Color(102, 102, 255));
+        doneBtn.setBackground(new java.awt.Color(187, 134, 252));
         doneBtn.setText("Done");
         doneBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doneBtnActionPerformed(evt);
             }
         });
-        passwordPanel.add(doneBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, 32));
+        doneBtn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                doneBtnKeyPressed(evt);
+            }
+        });
 
         confirmPassLbl.setBackground(new java.awt.Color(255, 255, 255));
         confirmPassLbl.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         confirmPassLbl.setForeground(new java.awt.Color(255, 255, 255));
         confirmPassLbl.setText("Confirm new password");
-        passwordPanel.add(confirmPassLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
-        confirmPassTf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmPassTfActionPerformed(evt);
+        newPassTf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        newPassTf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                newPassTfFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                newPassTfFocusLost(evt);
             }
         });
-        passwordPanel.add(confirmPassTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 169, 32));
+        newPassTf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                newPassTfKeyPressed(evt);
+            }
+        });
+
+        confirmPassTf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        confirmPassTf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                confirmPassTfFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                confirmPassTfFocusLost(evt);
+            }
+        });
+
+        newPassEyeBtn.setBackground(new java.awt.Color(18, 18, 18));
+        newPassEyeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_eye_20px.png"))); // NOI18N
+        newPassEyeBtn.setToolTipText("show/hide password");
+        newPassEyeBtn.setBorder(null);
+        newPassEyeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                newPassEyeBtnMouseClicked(evt);
+            }
+        });
+
+        confirmPassEyeBtn.setBackground(new java.awt.Color(18, 18, 18));
+        confirmPassEyeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_eye_20px.png"))); // NOI18N
+        confirmPassEyeBtn.setToolTipText("show/hide password");
+        confirmPassEyeBtn.setBorder(null);
+        confirmPassEyeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                confirmPassEyeBtnMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout passwordPanelLayout = new javax.swing.GroupLayout(passwordPanel);
+        passwordPanel.setLayout(passwordPanelLayout);
+        passwordPanelLayout.setHorizontalGroup(
+            passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(passwordPanelLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(confirmPassLbl)
+                    .addComponent(newPassLbl))
+                .addGap(48, 48, 48)
+                .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(passwordPanelLayout.createSequentialGroup()
+                        .addComponent(newPassTf, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(newPassEyeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(passwordPanelLayout.createSequentialGroup()
+                        .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(doneBtn)
+                            .addComponent(confirmPassTf, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(confirmPassEyeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        passwordPanelLayout.setVerticalGroup(
+            passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(passwordPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(passwordPanelLayout.createSequentialGroup()
+                        .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(newPassLbl)
+                                .addComponent(newPassTf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(newPassEyeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(confirmPassLbl)
+                            .addComponent(confirmPassTf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(confirmPassEyeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(doneBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -285,7 +382,7 @@ public class forgetPass extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(emailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(passwordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
+                    .addComponent(passwordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -299,8 +396,8 @@ public class forgetPass extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(emailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(passwordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(passwordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -318,23 +415,21 @@ public class forgetPass extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emailTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTFActionPerformed
-        // TODO add your handling number here:
-    }//GEN-LAST:event_emailTFActionPerformed
-
-    private void codeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeTFActionPerformed
-        // TODO add your handling number here:
-    }//GEN-LAST:event_codeTFActionPerformed
-
-    private void verifyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifyBtnActionPerformed
-        // TODO add your handling number here:
+    // code verification method ///
+    void verifyCode() {
         if (codeTF.getText().equals(code)) {
             JOptionPane.showMessageDialog(this, "Code matched");
             codeLbl.setEnabled(false);
             codeTF.setEnabled(false);
             verifyBtn.setEnabled(false);
             enableComponents();
+        } else {
+            JOptionPane.showMessageDialog(this, "Verification code doesn't match", "Wrong code", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    private void verifyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifyBtnActionPerformed
+
+        verifyCode();
     }//GEN-LAST:event_verifyBtnActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -342,15 +437,39 @@ public class forgetPass extends javax.swing.JFrame {
         this.dispose();
         new LoginPage().setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
-    Random random;
-    String code;
-    private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBtnActionPerformed
-        // TODO add your handling number here:
+    Random random; /// it will generate random verification code
+    String code;   /// it will hold verification code
+
+    /// email sending method ////
+    void sendMail() {
+        /* 
+        This part of the code will check if the entered email is in the database or not
+        if user enter non existing email it will give error
+         */
+        try {
+
+            conn = DBConnection.getConnection();
+            st = conn.prepareStatement("select o_email from owner_signup where o_email=?");
+            st.setString(1, emailTF.getText());
+
+            rs = st.executeQuery();
+            if (rs.next()) {
+                existed_email = rs.getString("o_email");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(forgetPass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        // all these if statements are for different type of worst cases that may occur while entering data
         if (emailTF.getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(this, "Please enter email..", "Email not inserted", JOptionPane.ERROR_MESSAGE);
         } else if (!emailTF.getText().contains("@gmail.com")) {
             JOptionPane.showMessageDialog(this, "Please enter a valid email example: abc@gmail.com", "Invalid Email", JOptionPane.ERROR_MESSAGE);
+        } else if (!emailTF.getText().equals(existed_email)) {
+            JOptionPane.showMessageDialog(this, "No such email found, Enter carefully", "Invalid Email", JOptionPane.ERROR_MESSAGE);
+
         } else {
             mailLbl.setEnabled(false);
             emailTF.setEnabled(false);
@@ -359,11 +478,12 @@ public class forgetPass extends javax.swing.JFrame {
             codeLbl.setEnabled(true);
             codeTF.setEnabled(true);
             verifyBtn.setEnabled(true);
+            // this piece of code will generate random 6-digit verification code
 
             random = new Random();
             int number = random.nextInt(999999);
             code = String.format("%06d", number);
-            System.out.println(code);
+
             // Recipient's email ID needs to be mentioned.
             String to = emailTF.getText();
 
@@ -411,28 +531,31 @@ public class forgetPass extends javax.swing.JFrame {
 
                 // Now set the actual message
                 message.setText("Your reset password verification code is " + code);
-                JOptionPane.showMessageDialog(this, "sending verification code ...", "Sending", JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog(this, "sending verification code, It may take time ...", "Sending", JOptionPane.PLAIN_MESSAGE);
 
                 // Send message
                 Transport.send(message);
                 JOptionPane.showMessageDialog(this, "Code sent successfully ...", "Sent", JOptionPane.PLAIN_MESSAGE);
 
             } catch (MessagingException mex) {
-                mex.printStackTrace();
+                System.out.println(mex);
             }
         }
+    }
+    private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBtnActionPerformed
+
+        sendMail();
     }//GEN-LAST:event_sendBtnActionPerformed
 
-    private void newPassTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPassTfActionPerformed
-        // TODO add your handling number here:
-    }//GEN-LAST:event_newPassTfActionPerformed
+    /// confirm new password method ///
+    void confirmPassword() {
+        if (String.valueOf(newPassTf.getPassword()).isEmpty() || String.valueOf(confirmPassTf.getPassword()).isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter data in both fields", "Error", JOptionPane.ERROR_MESSAGE);
 
-    private void doneBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneBtnActionPerformed
-
-        if (newPassTf.getText().equals(confirmPassTf.getText())) {
+        } else if (String.valueOf(newPassTf.getPassword()).equals(String.valueOf(confirmPassTf.getPassword()))) {
 
             try {
-           String sql="update owner_signup set o_password='" + confirmPassTf.getText() + "' where o_email='" + emailTF.getText() + "'";
+                String sql = "update owner_signup set o_password='" + confirmPassTf.getText() + "' where o_email='" + emailTF.getText() + "'";
                 Statement st = conn.createStatement();
                 st.executeUpdate(sql);
 
@@ -447,23 +570,111 @@ public class forgetPass extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Passwords not matched", "Error", JOptionPane.ERROR_MESSAGE);
 
         }
+    }
+    private void doneBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneBtnActionPerformed
+        confirmPassword();
+
     }//GEN-LAST:event_doneBtnActionPerformed
 
-    private void confirmPassTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPassTfActionPerformed
-        // TODO add your handling number here:
-    }//GEN-LAST:event_confirmPassTfActionPerformed
-
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-         int x = evt.getXOnScreen();
+        int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
 
         setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_formMouseDragged
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-       xMouse=evt.getX();
-       yMouse=evt.getY();
+        xMouse = evt.getX();
+        yMouse = evt.getY();
     }//GEN-LAST:event_formMousePressed
+
+    private void emailTFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTFKeyPressed
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            sendMail();
+        }
+    }//GEN-LAST:event_emailTFKeyPressed
+
+    private void codeTFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codeTFKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            verifyCode();
+        }
+    }//GEN-LAST:event_codeTFKeyPressed
+
+    ImageIcon image1 = new ImageIcon("E:\\ShoeManagementSystem\\src\\Images\\icons8_eye_20px.png");
+    ImageIcon image2 = new ImageIcon("E:\\ShoeManagementSystem\\src\\Images\\icons8_invisible_20px_1.png");
+
+    int counter = 1;
+
+    private void newPassEyeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newPassEyeBtnMouseClicked
+
+        if (counter == 1) {
+            newPassTf.setEchoChar((char) 0);
+            newPassEyeBtn.setIcon(image2);
+            counter--;
+        } else {
+            newPassTf.setEchoChar('\u25cf');
+            newPassEyeBtn.setIcon(image1);
+            counter = 1;
+        }
+
+    }//GEN-LAST:event_newPassEyeBtnMouseClicked
+
+    private void confirmPassEyeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmPassEyeBtnMouseClicked
+        if (counter == 1) {
+            confirmPassTf.setEchoChar((char) 0);
+            confirmPassEyeBtn.setIcon(image2);
+            counter--;
+        } else {
+            confirmPassTf.setEchoChar('\u25cf');
+            confirmPassEyeBtn.setIcon(image1);
+            counter = 1;
+        }
+    }//GEN-LAST:event_confirmPassEyeBtnMouseClicked
+
+    private void sendBtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sendBtnKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            sendMail();
+        }
+    }//GEN-LAST:event_sendBtnKeyPressed
+
+    private void verifyBtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_verifyBtnKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            verifyCode();
+        }
+    }//GEN-LAST:event_verifyBtnKeyPressed
+
+    private void doneBtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_doneBtnKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            confirmPassword();
+        }
+    }//GEN-LAST:event_doneBtnKeyPressed
+
+    private void newPassTfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newPassTfKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            confirmPassTf.grabFocus();
+        }
+    }//GEN-LAST:event_newPassTfKeyPressed
+
+    private void newPassTfFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newPassTfFocusGained
+        newPassEyeBtn.setVisible(true);
+
+    }//GEN-LAST:event_newPassTfFocusGained
+
+    private void newPassTfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newPassTfFocusLost
+        newPassEyeBtn.setVisible(false);
+
+    }//GEN-LAST:event_newPassTfFocusLost
+
+    private void confirmPassTfFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_confirmPassTfFocusGained
+
+        confirmPassEyeBtn.setVisible(true);
+    }//GEN-LAST:event_confirmPassTfFocusGained
+
+    private void confirmPassTfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_confirmPassTfFocusLost
+        
+        confirmPassEyeBtn.setVisible(false);
+    }//GEN-LAST:event_confirmPassTfFocusLost
 
     /**
      * @param args the command line arguments
@@ -503,8 +714,9 @@ public class forgetPass extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel codeLbl;
     private javax.swing.JTextField codeTF;
+    private javax.swing.JButton confirmPassEyeBtn;
     private javax.swing.JLabel confirmPassLbl;
-    private javax.swing.JTextField confirmPassTf;
+    private javax.swing.JPasswordField confirmPassTf;
     private javax.swing.JButton doneBtn;
     private javax.swing.JPanel emailPanel;
     private javax.swing.JTextField emailTF;
@@ -512,8 +724,9 @@ public class forgetPass extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel mailLbl;
+    private javax.swing.JButton newPassEyeBtn;
     private javax.swing.JLabel newPassLbl;
-    private javax.swing.JTextField newPassTf;
+    private javax.swing.JPasswordField newPassTf;
     private javax.swing.JPanel passwordPanel;
     private javax.swing.JButton sendBtn;
     private javax.swing.JButton verifyBtn;

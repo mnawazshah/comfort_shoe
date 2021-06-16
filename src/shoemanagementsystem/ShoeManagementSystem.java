@@ -5,18 +5,65 @@
  */
 package shoemanagementsystem;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import static shoemanagementsystem.Settings.lookandfeel;
+import static shoemanagementsystem.Settings.selectedTheme;
+
 /**
  *
  * @author mnawa
  */
 public class ShoeManagementSystem {
 
-    /**
-     * @param args the command line arguments
-     */
+    static RandomAccessFile file;
+    static String theme2;
+
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        try {
+            file = new RandomAccessFile("theme.txt", "rw");
+            theme2 = file.readUTF();
+            System.out.println("FILE" + theme2);
+            if (theme2.contains("metal")) {
+                setLookandFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+
+            } else if (theme2.contains("nimbus")) {
+
+                setLookandFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+            } else if (theme2.contains("windows")) {
+                setLookandFeel(UIManager.getSystemLookAndFeelClassName());
+
+            } else if (theme2.contains("motif")) {
+
+                setLookandFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+
+            }
+            file.close();
+
+        } catch (Exception ex) {
+            // when fiel not found.....
+            ex.printStackTrace();
+        }
+
         new LoginPage().setVisible(true);
     }
-    
+
+    public static void setLookandFeel(String theme) {
+        try {
+            UIManager.setLookAndFeel(theme);
+            file = new RandomAccessFile("theme.txt", "rw");
+
+            // save the theme2 state
+            file.writeUTF(theme);
+            file.close();
+        } catch (Exception ex) {
+            Logger.getLogger(ShoeManagementSystem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
