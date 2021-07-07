@@ -15,14 +15,16 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-
 public class DeleteDealer extends javax.swing.JFrame {
 
     Connection conn;
     PreparedStatement st;
     ResultSet rs;
+
     public DeleteDealer() {
         initComponents();
+        getAllDealers();
+        deleteBtn.setEnabled(false);
     }
 
     /**
@@ -39,12 +41,23 @@ public class DeleteDealer extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        employeesTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         deleteBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        dealersTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(18, 18, 18));
 
@@ -75,47 +88,18 @@ public class DeleteDealer extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton8)
-                .addGap(268, 268, 268)
+                .addGap(388, 388, 388)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 14, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        employeesTable.setBackground(new java.awt.Color(20, 20, 20));
-        employeesTable.setForeground(new java.awt.Color(255, 255, 255));
-        employeesTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Name", "Email", "Contact#", "Qualification", "Role", "Salary", "Username", "Password"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        employeesTable.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        employeesTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                employeesTableMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(employeesTable);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,6 +115,32 @@ public class DeleteDealer extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setBorder(null);
+
+        dealersTable.setBackground(new java.awt.Color(20, 20, 20));
+        dealersTable.setForeground(new java.awt.Color(255, 255, 255));
+        dealersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name", "Employee Name", "Email", "Contact#", "Address", "CNIC", "Account#"
+            }
+        ));
+        dealersTable.setFocusable(false);
+        dealersTable.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        dealersTable.setRequestFocusEnabled(false);
+        dealersTable.setRowHeight(26);
+        dealersTable.setSelectionBackground(new java.awt.Color(153, 153, 153));
+        dealersTable.setShowVerticalLines(false);
+        dealersTable.getTableHeader().setReorderingAllowed(false);
+        dealersTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dealersTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(dealersTable);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -140,24 +150,24 @@ public class DeleteDealer extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(345, 345, 345)
+                .addGap(428, 428, 428)
                 .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -168,7 +178,9 @@ public class DeleteDealer extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,22 +203,79 @@ public class DeleteDealer extends javax.swing.JFrame {
         new DealerForm().setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void employeesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeesTableMouseClicked
-        deleteBtn.setEnabled(true);
-
-    }//GEN-LAST:event_employeesTableMouseClicked
-
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         if (JOptionPane.showConfirmDialog(this, "Are you sure you want to delete selected row") == 0) {
 
-            
+            try {
+                int row = dealersTable.getSelectedRow();
+                TableModel tb = (DefaultTableModel) dealersTable.getModel();
+
+                int id = Integer.valueOf(tb.getValueAt(row, 0).toString());
+
+                conn = DBConnection.getConnection();
+                st = conn.prepareStatement("delete from supplier_contact_details where id=" + id);
+
+                st.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Row deleted successfuly", "Deleted", JOptionPane.INFORMATION_MESSAGE);
+                Refresh();
+            } catch (SQLException ex) {
+                Logger.getLogger(DeleteEmployee.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void dealersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dealersTableMouseClicked
+        deleteBtn.setEnabled(true);
+    }//GEN-LAST:event_dealersTableMouseClicked
+    int xMouse;
+    int yMouse;
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+
+        setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_formMouseDragged
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_formMousePressed
+
+    public void getAllDealers() {
+        try {
+            conn = DBConnection.getConnection();
+            String view = "select * from supplier_contact_details";
+            st = conn.prepareStatement(view);
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String employee = rs.getString(3);
+                String email = rs.getString(4);
+                String contact = rs.getString(5);
+                String address = rs.getString(6);
+                String cnic = rs.getString(7);
+                String account = rs.getString(8);
+
+                Object[] obj = {id, name, employee, email, contact, address, cnic, account};
+                DefaultTableModel tb = (DefaultTableModel) dealersTable.getModel();
+                tb.addRow(obj);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeeForm.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void Refresh() {
+        DefaultTableModel tb = (DefaultTableModel) dealersTable.getModel();
+        tb.setRowCount(0);
+        getAllDealers();
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -240,8 +309,8 @@ public class DeleteDealer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable dealersTable;
     private javax.swing.JButton deleteBtn;
-    private javax.swing.JTable employeesTable;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

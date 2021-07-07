@@ -164,6 +164,9 @@ public class forgetPass extends javax.swing.JFrame {
         emailPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email Verification", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         emailPanel.setForeground(new java.awt.Color(255, 255, 255));
 
+        codeTF.setBackground(new java.awt.Color(18, 18, 18));
+        codeTF.setForeground(new java.awt.Color(255, 255, 255));
+        codeTF.setCaretColor(new java.awt.Color(255, 255, 255));
         codeTF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 codeTFKeyPressed(evt);
@@ -193,6 +196,9 @@ public class forgetPass extends javax.swing.JFrame {
         mailLbl.setForeground(new java.awt.Color(255, 255, 255));
         mailLbl.setText("Enter your email");
 
+        emailTF.setBackground(new java.awt.Color(18, 18, 18));
+        emailTF.setForeground(new java.awt.Color(255, 255, 255));
+        emailTF.setCaretColor(new java.awt.Color(255, 255, 255));
         emailTF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 emailTFKeyPressed(evt);
@@ -280,7 +286,10 @@ public class forgetPass extends javax.swing.JFrame {
         confirmPassLbl.setForeground(new java.awt.Color(255, 255, 255));
         confirmPassLbl.setText("Confirm new password");
 
+        newPassTf.setBackground(new java.awt.Color(18, 18, 18));
         newPassTf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        newPassTf.setForeground(new java.awt.Color(255, 255, 255));
+        newPassTf.setCaretColor(new java.awt.Color(255, 255, 255));
         newPassTf.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 newPassTfFocusGained(evt);
@@ -295,7 +304,10 @@ public class forgetPass extends javax.swing.JFrame {
             }
         });
 
+        confirmPassTf.setBackground(new java.awt.Color(18, 18, 18));
         confirmPassTf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        confirmPassTf.setForeground(new java.awt.Color(255, 255, 255));
+        confirmPassTf.setCaretColor(new java.awt.Color(255, 255, 255));
         confirmPassTf.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 confirmPassTfFocusGained(evt);

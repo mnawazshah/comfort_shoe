@@ -35,7 +35,7 @@ public class UpdateEmployee extends javax.swing.JFrame {
 
         employeeTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         employeeTable.getTableHeader().setOpaque(false);
-        employeeTable.getTableHeader().setBackground(new Color(0, 0, 0));
+        employeeTable.getTableHeader().setBackground(new Color(187,134,252));
         employeeTable.getTableHeader().setForeground(new Color(255, 255, 255));
         employeeTable.setRowHeight(25);
 
@@ -78,7 +78,6 @@ public class UpdateEmployee extends javax.swing.JFrame {
         roleCb = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         employeeTable = new javax.swing.JTable();
-        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -122,9 +121,9 @@ public class UpdateEmployee extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton8)
-                .addGap(230, 230, 230)
+                .addGap(381, 381, 381)
                 .addComponent(jLabel1)
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,46 +138,82 @@ public class UpdateEmployee extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(18, 18, 18));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Update Employee", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select any row from table to update", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ID");
 
         idTf.setEditable(false);
+        idTf.setBackground(new java.awt.Color(18, 18, 18));
+        idTf.setForeground(new java.awt.Color(255, 255, 255));
+        idTf.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        nameTf.setBackground(new java.awt.Color(18, 18, 18));
+        nameTf.setForeground(new java.awt.Color(255, 255, 255));
+        nameTf.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Name");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email");
 
+        emailTf.setBackground(new java.awt.Color(18, 18, 18));
+        emailTf.setForeground(new java.awt.Color(255, 255, 255));
+        emailTf.setCaretColor(new java.awt.Color(255, 255, 255));
+
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Contact");
 
+        contactTf.setBackground(new java.awt.Color(18, 18, 18));
+        contactTf.setForeground(new java.awt.Color(255, 255, 255));
+        contactTf.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        qualificationTf.setBackground(new java.awt.Color(18, 18, 18));
+        qualificationTf.setForeground(new java.awt.Color(255, 255, 255));
+        qualificationTf.setCaretColor(new java.awt.Color(255, 255, 255));
+        qualificationTf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                qualificationTfKeyPressed(evt);
+            }
+        });
+
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Qualification");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Role");
 
+        salaryTf.setBackground(new java.awt.Color(18, 18, 18));
+        salaryTf.setForeground(new java.awt.Color(255, 255, 255));
+        salaryTf.setCaretColor(new java.awt.Color(255, 255, 255));
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Salary");
 
+        usernameTf.setBackground(new java.awt.Color(18, 18, 18));
+        usernameTf.setForeground(new java.awt.Color(255, 255, 255));
+        usernameTf.setCaretColor(new java.awt.Color(255, 255, 255));
+
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Username");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Password");
+
+        passwordTf.setBackground(new java.awt.Color(18, 18, 18));
+        passwordTf.setForeground(new java.awt.Color(255, 255, 255));
+        passwordTf.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jButton1.setBackground(new java.awt.Color(187, 134, 252));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -190,6 +225,8 @@ public class UpdateEmployee extends javax.swing.JFrame {
             }
         });
 
+        roleCb.setBackground(new java.awt.Color(18, 18, 18));
+        roleCb.setForeground(new java.awt.Color(255, 255, 255));
         roleCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select role", "Manager", "Cashier" }));
         roleCb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,9 +307,9 @@ public class UpdateEmployee extends javax.swing.JFrame {
                     .addComponent(usernameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordTf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         employeeTable.setBackground(new java.awt.Color(20, 20, 20));
@@ -293,33 +330,27 @@ public class UpdateEmployee extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(employeeTable);
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Select any row from table to update");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)))
-                .addGap(26, 26, 26))
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(160, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
@@ -328,9 +359,7 @@ public class UpdateEmployee extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -407,7 +436,7 @@ public class UpdateEmployee extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(null, "Data updated successfuly", "Updated", JOptionPane.INFORMATION_MESSAGE);
                 Refresh();
-                employeeTable.setRowSelectionInterval(id, id);
+                
 
             } catch (SQLException ex) {
                 Logger.getLogger(UpdateEmployee.class.getName()).log(Level.SEVERE, null, ex);
@@ -448,6 +477,10 @@ public class UpdateEmployee extends javax.swing.JFrame {
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_formMousePressed
+
+    private void qualificationTfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_qualificationTfKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_qualificationTfKeyPressed
 
     /**
      * @param args the command line arguments
@@ -526,7 +559,6 @@ public class UpdateEmployee extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

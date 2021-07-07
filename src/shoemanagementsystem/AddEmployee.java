@@ -37,7 +37,7 @@ public class AddEmployee extends javax.swing.JFrame {
         conn = DBConnection.getConnection();
         employeeTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         employeeTable.getTableHeader().setOpaque(false);
-        employeeTable.getTableHeader().setBackground(new Color(0, 0, 0));
+        employeeTable.getTableHeader().setBackground(new Color(187,134,252));
         employeeTable.getTableHeader().setForeground(new Color(255, 255, 255));
         employeeTable.setRowHeight(25);
         getID();
@@ -125,9 +125,9 @@ public class AddEmployee extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton8)
-                .addGap(230, 230, 230)
+                .addGap(379, 379, 379)
                 .addComponent(jLabel1)
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,80 +145,112 @@ public class AddEmployee extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add Employee", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ID");
 
         idTf.setEditable(false);
+        idTf.setBackground(new java.awt.Color(18, 18, 18));
+        idTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        idTf.setForeground(new java.awt.Color(255, 255, 255));
+        idTf.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        nameTf.setBackground(new java.awt.Color(18, 18, 18));
+        nameTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        nameTf.setForeground(new java.awt.Color(255, 255, 255));
+        nameTf.setCaretColor(new java.awt.Color(255, 255, 255));
         nameTf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 nameTfKeyPressed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Name");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email");
 
+        emailTf.setBackground(new java.awt.Color(18, 18, 18));
+        emailTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        emailTf.setForeground(new java.awt.Color(255, 255, 255));
+        emailTf.setCaretColor(new java.awt.Color(255, 255, 255));
         emailTf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 emailTfKeyPressed(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Contact");
 
+        contactTf.setBackground(new java.awt.Color(18, 18, 18));
+        contactTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        contactTf.setForeground(new java.awt.Color(255, 255, 255));
+        contactTf.setCaretColor(new java.awt.Color(255, 255, 255));
         contactTf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 contactTfKeyPressed(evt);
             }
         });
 
+        qualificationTf.setBackground(new java.awt.Color(18, 18, 18));
+        qualificationTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        qualificationTf.setForeground(new java.awt.Color(255, 255, 255));
+        qualificationTf.setCaretColor(new java.awt.Color(255, 255, 255));
         qualificationTf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 qualificationTfKeyPressed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Qualification");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Role");
 
+        salaryTf.setBackground(new java.awt.Color(18, 18, 18));
+        salaryTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        salaryTf.setForeground(new java.awt.Color(255, 255, 255));
+        salaryTf.setCaretColor(new java.awt.Color(255, 255, 255));
         salaryTf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 salaryTfKeyPressed(evt);
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Salary");
 
+        usernameTf.setBackground(new java.awt.Color(18, 18, 18));
+        usernameTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        usernameTf.setForeground(new java.awt.Color(255, 255, 255));
+        usernameTf.setCaretColor(new java.awt.Color(255, 255, 255));
         usernameTf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 usernameTfKeyPressed(evt);
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Username");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel10.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Password");
 
+        passwordTf.setBackground(new java.awt.Color(18, 18, 18));
+        passwordTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        passwordTf.setForeground(new java.awt.Color(255, 255, 255));
+        passwordTf.setCaretColor(new java.awt.Color(255, 255, 255));
         passwordTf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 passwordTfKeyPressed(evt);
@@ -235,6 +267,8 @@ public class AddEmployee extends javax.swing.JFrame {
             }
         });
 
+        roleCb.setBackground(new java.awt.Color(18, 18, 18));
+        roleCb.setForeground(new java.awt.Color(255, 255, 255));
         roleCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select role", "Manager", "Cashier" }));
         roleCb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,7 +294,7 @@ public class AddEmployee extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(idTf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(nameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -279,7 +313,7 @@ public class AddEmployee extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(emailTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -313,9 +347,9 @@ public class AddEmployee extends javax.swing.JFrame {
                     .addComponent(usernameTf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordTf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         employeeTable.setBackground(new java.awt.Color(18, 18, 18));
@@ -348,20 +382,22 @@ public class AddEmployee extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(127, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE))
-                .addGap(26, 26, 26))
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -370,9 +406,7 @@ public class AddEmployee extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -406,7 +440,7 @@ int id = 0;
             String qualif = qualificationTf.getText();
             String role = roleCb.getSelectedItem().toString();
 
-            int salary = Integer.valueOf(salaryTf.getText());
+            String salary = salaryTf.getText();
             String username = usernameTf.getText();
             String password = passwordTf.getText();
 
@@ -422,13 +456,13 @@ int id = 0;
 
                 JOptionPane.showMessageDialog(null, "Please Enter a valid email i.e (abc@gmail.com)", "Invalid email", JOptionPane.ERROR_MESSAGE);
 
-            } else if (contact.matches("0-9")) {
+            } else if (!contact.matches("[0-9]+")) {
 
                 JOptionPane.showMessageDialog(null, "Please Enter a proper number (03121212125)", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
 
             } else if (roleCb.getSelectedIndex() == 0) {
                 JOptionPane.showMessageDialog(null, "Please select a role");
-            } else if (String.valueOf(salary).matches("[^0-9]")) {
+            } else if (!String.valueOf(salary).matches("[0-9]+")) {
 
                 JOptionPane.showMessageDialog(null, "Salary can't contain alphabets", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
 
@@ -443,7 +477,7 @@ int id = 0;
                     JOptionPane.showMessageDialog(null, "Password must contain atleast one Upper Case alphabet", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
 
                 }
-            } else {
+             else {
 
                 st = conn.prepareStatement("insert into employee_signup values(?,?,?,?,?,?,?,curdate(),curtime(),?,?)");
                 st.setInt(1, id);
@@ -452,7 +486,7 @@ int id = 0;
                 st.setString(4, contact);
                 st.setString(5, qualif);
                 st.setString(6, role);
-                st.setInt(7, salary);
+                st.setInt(7, Integer.valueOf(salary));
                 st.setString(8, username);
                 st.setString(9, password);
 
@@ -460,7 +494,10 @@ int id = 0;
 
                 JOptionPane.showMessageDialog(null, "Data inserted successfuly", "Success", JOptionPane.INFORMATION_MESSAGE);
                 Refresh();
+                employeeTable.setRowSelectionInterval(id - 1, id - 1);
+                employeeTable.scrollRectToVisible(employeeTable.getCellRect(id - 1, 0, true));
                 getID();
+            }
             }
 
         } catch (SQLException ex) {
@@ -499,6 +536,7 @@ int id = 0;
     private void nameTfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTfKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             String name = nameTf.getText().toLowerCase();
+
             if (name.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Must enter a name", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
 
@@ -540,12 +578,12 @@ int id = 0;
             if (contact.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Contact # can not be empty", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
 
-            } else if (contact.matches("0-9")) {
+            } else if (!contact.matches("[0-9]+")) {
 
                 JOptionPane.showMessageDialog(null, "Please Enter a proper number (03121212125)", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
 
             } else {
-                contactTf.setEditable(false);
+                
 
                 qualificationTf.grabFocus();
             }
@@ -561,6 +599,8 @@ int id = 0;
                 JOptionPane.showMessageDialog(null, "Qualification can not be empty", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
 
             }
+            else 
+                roleCb.grabFocus();
 
         }
     }//GEN-LAST:event_qualificationTfKeyPressed
@@ -572,7 +612,7 @@ int id = 0;
             if (salary.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Salary can not be empty", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
 
-            } else if (salary.matches("[^0-9]")) {
+            } else if (!salary.matches("[0-9]+")) {
 
                 JOptionPane.showMessageDialog(null, "Salary can't contain alphabets", "Invalid Entry", JOptionPane.ERROR_MESSAGE);
 
@@ -676,7 +716,7 @@ int id = 0;
         try {
             conn = DBConnection.getConnection();
 
-            st = conn.prepareStatement("select * from employee_signup order by id desc");
+            st = conn.prepareStatement("select * from employee_signup");
             rs = st.executeQuery();
 
             while (rs.next()) {

@@ -5,15 +5,12 @@
  */
 package shoemanagementsystem;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+
 import java.io.RandomAccessFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import static shoemanagementsystem.Settings.lookandfeel;
-import static shoemanagementsystem.Settings.selectedTheme;
+
 
 /**
  *
@@ -24,12 +21,18 @@ public class ShoeManagementSystem {
     static RandomAccessFile file;
     static String theme2;
 
+ 
+    
+    
+    
+    
+
     public static void main(String[] args) {
 
         try {
             file = new RandomAccessFile("theme.txt", "rw");
             theme2 = file.readUTF();
-            System.out.println("FILE" + theme2);
+            
             if (theme2.contains("metal")) {
                 setLookandFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 

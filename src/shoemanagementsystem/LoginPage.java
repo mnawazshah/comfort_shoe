@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.awt.font.TextAttribute;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -18,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -46,7 +48,10 @@ public class LoginPage extends javax.swing.JFrame {
         setIconImage(a);
         capsLock.setVisible(false);
 
-       
+        Font font = forgetpassLbl.getFont();
+        Map attrib = font.getAttributes();
+        attrib.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        forgetpassLbl.setFont(font.deriveFont(attrib));
 
     }
 
@@ -73,6 +78,7 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         capsLock = new javax.swing.JLabel();
+        minimizeLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -89,10 +95,10 @@ public class LoginPage extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel1.setBackground(new java.awt.Color(31, 31, 31));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        usernameFld.setBackground(new java.awt.Color(18, 18, 18));
+        usernameFld.setBackground(new java.awt.Color(31, 31, 31));
         usernameFld.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         usernameFld.setForeground(new java.awt.Color(255, 255, 255));
         usernameFld.setText("username");
@@ -120,7 +126,7 @@ public class LoginPage extends javax.swing.JFrame {
         });
         jPanel1.add(usernameFld, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 83, 176, 34));
 
-        passwordFld.setBackground(new java.awt.Color(18, 18, 18));
+        passwordFld.setBackground(new java.awt.Color(31, 31, 31));
         passwordFld.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         passwordFld.setForeground(new java.awt.Color(255, 255, 255));
         passwordFld.setText("password");
@@ -167,7 +173,7 @@ public class LoginPage extends javax.swing.JFrame {
                 closeLblMouseExited(evt);
             }
         });
-        jPanel1.add(closeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 0, 27, 31));
+        jPanel1.add(closeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 27, 31));
 
         forgetpassLbl.setBackground(new java.awt.Color(255, 153, 51));
         forgetpassLbl.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -185,7 +191,7 @@ public class LoginPage extends javax.swing.JFrame {
                 forgetpassLblMouseExited(evt);
             }
         });
-        jPanel1.add(forgetpassLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 88, 20));
+        jPanel1.add(forgetpassLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 80, 20));
 
         loginBtn.setBackground(new java.awt.Color(187, 134, 252));
         loginBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -204,7 +210,7 @@ public class LoginPage extends javax.swing.JFrame {
         });
         jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 273, 176, 34));
 
-        visibleBtn.setBackground(new java.awt.Color(18, 18, 18));
+        visibleBtn.setBackground(new java.awt.Color(31, 31, 31));
         visibleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_eye_20px.png"))); // NOI18N
         visibleBtn.setToolTipText("show/hide password");
         visibleBtn.setBorder(null);
@@ -218,7 +224,7 @@ public class LoginPage extends javax.swing.JFrame {
                 visibleBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(visibleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 202, 31, 25));
+        jPanel1.add(visibleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 20, 20));
 
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -228,10 +234,29 @@ public class LoginPage extends javax.swing.JFrame {
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 73, -1, 234));
 
-        capsLock.setForeground(new java.awt.Color(255, 0, 0));
+        capsLock.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        capsLock.setForeground(new java.awt.Color(255, 255, 255));
         capsLock.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         capsLock.setText("CAPS lock is on");
-        jPanel1.add(capsLock, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
+        jPanel1.add(capsLock, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, 20));
+
+        minimizeLbl.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        minimizeLbl.setForeground(new java.awt.Color(255, 255, 255));
+        minimizeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        minimizeLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_minimize_window_18px.png"))); // NOI18N
+        minimizeLbl.setToolTipText("Minimize");
+        minimizeLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeLblMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                minimizeLblMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                minimizeLblMouseExited(evt);
+            }
+        });
+        jPanel1.add(minimizeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 27, 31));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 390));
 
@@ -261,18 +286,24 @@ public class LoginPage extends javax.swing.JFrame {
     private void forgetpassLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgetpassLblMouseEntered
 
         forgetpassLbl.setForeground(Color.white);
-        forgetpassLbl.setFont(new Font("Verdana", Font.BOLD, 12));
+        Font font = forgetpassLbl.getFont();
+        Map attrib = font.getAttributes();
+        attrib.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        forgetpassLbl.setFont(font.deriveFont(attrib));
+
     }//GEN-LAST:event_forgetpassLblMouseEntered
 
     private void forgetpassLblMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgetpassLblMouseExited
         forgetpassLbl.setForeground(new Color(199, 199, 199));
 
-        forgetpassLbl.setFont(new Font("Verdana", Font.PLAIN, 12));
+        Font font = forgetpassLbl.getFont();
+        Map attrib = font.getAttributes();
+        attrib.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        forgetpassLbl.setFont(font.deriveFont(attrib));
 
     }//GEN-LAST:event_forgetpassLblMouseExited
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        // TODO add your handling code here:
 
         login();
     }//GEN-LAST:event_loginBtnActionPerformed
@@ -402,6 +433,18 @@ public class LoginPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_usernameFldFocusGained
 
+    private void minimizeLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeLblMouseClicked
+        setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_minimizeLblMouseClicked
+
+    private void minimizeLblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeLblMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_minimizeLblMouseEntered
+
+    private void minimizeLblMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeLblMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_minimizeLblMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -449,6 +492,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JButton loginBtn;
+    private javax.swing.JLabel minimizeLbl;
     private javax.swing.JPasswordField passwordFld;
     private javax.swing.JTextField usernameFld;
     private javax.swing.JButton visibleBtn;
@@ -480,7 +524,7 @@ public class LoginPage extends javax.swing.JFrame {
             try {
                 conn = DBConnection.getConnection();
                 st = conn.prepareStatement("select id,o_name from owner_signup where o_username=? AND o_password=?");
-                st.setString(1, usernameFld.getText());
+                st.setString(1, usernameFld.getText().trim());
                 st.setString(2, String.valueOf(passwordFld.getPassword()));
                 rs = st.executeQuery();
 
@@ -494,12 +538,15 @@ public class LoginPage extends javax.swing.JFrame {
                     st = conn.prepareStatement(sql);
                     st.execute();
 
+                    userdetails.userId(id);
+                    userdetails.username(name.toUpperCase());
+
                     this.dispose();
                     MainMenuFrame menu = new MainMenuFrame();
                     menu.setVisible(true);
-                    menu.setusername(name.toUpperCase());
 
-                    
+                    MainMenuFrame.setUsername();
+
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid cradentials, TRY AGAIN...");
 
