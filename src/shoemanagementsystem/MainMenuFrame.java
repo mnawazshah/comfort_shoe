@@ -227,6 +227,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         tittlePanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -246,9 +247,9 @@ public class MainMenuFrame extends javax.swing.JFrame {
         brands = new javax.swing.JLabel();
         Database = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         timeLbl = new javax.swing.JLabel();
         dateLbl = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -267,9 +268,10 @@ public class MainMenuFrame extends javax.swing.JFrame {
                 formMouseDragged(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tittlePanel.setBackground(new java.awt.Color(20, 20, 20));
+        jPanel2.setBackground(new java.awt.Color(18, 18, 18));
+
+        tittlePanel.setBackground(new java.awt.Color(29, 29, 29));
         tittlePanel.setForeground(new java.awt.Color(187, 134, 252));
         tittlePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -321,8 +323,6 @@ public class MainMenuFrame extends javax.swing.JFrame {
             }
         });
         tittlePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, -1, 31));
-
-        getContentPane().add(tittlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 90));
 
         MenuPanel.setBackground(new java.awt.Color(31, 31, 31));
 
@@ -529,21 +529,8 @@ public class MainMenuFrame extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        getContentPane().add(MenuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 720, 420));
-
-        jPanel1.setBackground(new java.awt.Color(10, 10, 10));
+        jPanel1.setBackground(new java.awt.Color(29, 29, 29));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        timeLbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        timeLbl.setForeground(new java.awt.Color(255, 255, 255));
-        timeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        timeLbl.setText("12:12 PM");
-        jPanel1.add(timeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(648, 10, 60, -1));
-
-        dateLbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        dateLbl.setForeground(new java.awt.Color(255, 255, 255));
-        dateLbl.setText("27/06/2021");
-        jPanel1.add(dateLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, 20));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_settings_25px.png"))); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -553,7 +540,45 @@ public class MainMenuFrame extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 720, 50));
+        timeLbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        timeLbl.setForeground(new java.awt.Color(255, 255, 255));
+        timeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        timeLbl.setText("12:12 PM");
+        jPanel1.add(timeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 60, -1));
+
+        dateLbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        dateLbl.setForeground(new java.awt.Color(255, 255, 255));
+        dateLbl.setText("27/06/2021");
+        jPanel1.add(dateLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, -1, 20));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tittlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(MenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(tittlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(MenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -827,6 +852,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private static javax.swing.JLabel loggedinUserLbl;
     private javax.swing.JLabel timeLbl;
     private javax.swing.JPanel tittlePanel;

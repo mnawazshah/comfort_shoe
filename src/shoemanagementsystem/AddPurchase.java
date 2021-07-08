@@ -207,7 +207,7 @@ public class AddPurchase extends javax.swing.JFrame {
 
         categoryCb.setBackground(new java.awt.Color(18, 18, 18));
         categoryCb.setForeground(new java.awt.Color(255, 255, 255));
-        categoryCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Category", "Men", "Women", "Kids" }));
+        categoryCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Category", "Men", "Women" }));
         categoryCb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryCbActionPerformed(evt);

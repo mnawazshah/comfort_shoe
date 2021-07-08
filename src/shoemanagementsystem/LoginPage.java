@@ -95,7 +95,7 @@ public class LoginPage extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(31, 31, 31));
+        jPanel1.setBackground(new java.awt.Color(29, 29, 29));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         usernameFld.setBackground(new java.awt.Color(31, 31, 31));
