@@ -20,8 +20,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -53,6 +64,7 @@ public class DealerForm extends javax.swing.JFrame {
 
     public DealerForm() {
         initComponents();
+        getContentPane().setBackground(new Color(12, 12, 12));
         dealersTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         dealersTable.getTableHeader().setOpaque(false);
         dealersTable.getTableHeader().setBackground(new Color(187, 134, 252));
@@ -61,6 +73,7 @@ public class DealerForm extends javax.swing.JFrame {
 
         getDealers();
         TableFilter();
+
     }
     private TableRowSorter<TableModel> rowSorter;
 
@@ -120,6 +133,7 @@ public class DealerForm extends javax.swing.JFrame {
         searchTf2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(12, 12, 12));
         setUndecorated(true);
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -132,7 +146,7 @@ public class DealerForm extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel1.setBackground(new java.awt.Color(29, 29, 29));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -157,22 +171,21 @@ public class DealerForm extends javax.swing.JFrame {
         dealersTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(dealersTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 930, 379));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 930, 379));
 
         refreshBtn.setBackground(new java.awt.Color(187, 134, 252));
         refreshBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         refreshBtn.setForeground(new java.awt.Color(255, 255, 255));
-        refreshBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_synchronize_25px.png"))); // NOI18N
-        refreshBtn.setText("Refresh");
+        refreshBtn.setText("Email Excel File");
         refreshBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         refreshBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(refreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 640, -1, 30));
+        jPanel1.add(refreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 570, -1, 30));
 
-        jPanel2.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel2.setBackground(new java.awt.Color(29, 29, 29));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Options Available", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -212,12 +225,11 @@ public class DealerForm extends javax.swing.JFrame {
         });
         jPanel2.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 66, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 317, 90));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 317, 90));
 
         pdfBtn.setBackground(new java.awt.Color(187, 134, 252));
         pdfBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         pdfBtn.setForeground(new java.awt.Color(255, 255, 255));
-        pdfBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_pdf_25px.png"))); // NOI18N
         pdfBtn.setText("Create PDF");
         pdfBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pdfBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -225,20 +237,23 @@ public class DealerForm extends javax.swing.JFrame {
                 pdfBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(pdfBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 640, -1, 30));
+        jPanel1.add(pdfBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, -1, 30));
 
         mailBtn.setBackground(new java.awt.Color(187, 134, 252));
         mailBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         mailBtn.setForeground(new java.awt.Color(255, 255, 255));
-        mailBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_gmail_25px.png"))); // NOI18N
-        mailBtn.setText("Send Email");
+        mailBtn.setText("Email PDF file");
         mailBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(mailBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 640, -1, 30));
+        mailBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mailBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mailBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, -1, 30));
 
         exelBtn.setBackground(new java.awt.Color(187, 134, 252));
         exelBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         exelBtn.setForeground(new java.awt.Color(255, 255, 255));
-        exelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_microsoft_excel_2019_25px.png"))); // NOI18N
         exelBtn.setText("Create Exel File");
         exelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -246,14 +261,14 @@ public class DealerForm extends javax.swing.JFrame {
                 exelBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(exelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 640, -1, 30));
+        jPanel1.add(exelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Serif", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("LIST OF ALL EMPLOYEES");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 194, 160, 20));
 
-        jPanel3.setBackground(new java.awt.Color(10, 10, 10));
+        jPanel3.setBackground(new java.awt.Color(29, 29, 29));
         jPanel3.setForeground(new java.awt.Color(51, 51, 51));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -261,7 +276,7 @@ public class DealerForm extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Dealers");
 
-        jButton8.setBackground(new java.awt.Color(10, 10, 10));
+        jButton8.setBackground(new java.awt.Color(29, 29, 29));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_left_25px.png"))); // NOI18N
@@ -313,29 +328,118 @@ public class DealerForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 70));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 970, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 701, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        setSize(new java.awt.Dimension(969, 701));
+        setSize(new java.awt.Dimension(969, 702));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+File file2;
     private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
-        Refresh();
+        try {
+            file2 = new File(System.getProperty("user.home") + "\\OneDrive\\Desktop\\dealers.csv");
+
+            JRCsvExporter exporter = new JRCsvExporter();
+            exporter.setExporterInput(new SimpleExporterInput(JasperFillManager.fillReport(locationCSV, null, DBConnection.getConnection())));
+
+            exporter.setExporterOutput(new SimpleWriterExporterOutput(file2));
+            SimpleCsvExporterConfiguration configuration = new SimpleCsvExporterConfiguration();
+            configuration.setWriteBOM(Boolean.TRUE);
+            configuration.setRecordDelimiter("\r\n");
+            exporter.setConfiguration(configuration);
+            exporter.exportReport();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+        String to = "mnawazshah49@gmail.com";
+
+        // Sender's email ID needs to be mentioned
+        String from = "syyedmnawazshah@gmail.com";
+
+        // Assuming you are sending email from through gmails smtp
+        String host = "smtp.gmail.com";
+
+        // Get system properties
+        Properties properties = System.getProperties();
+
+        // Setup mail server
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", "465");
+        properties.put("mail.smtp.ssl.enable", "true");
+        properties.put("mail.smtp.auth", "true");
+
+        // Get the Session object.// and pass username and password
+        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+
+            protected PasswordAuthentication getPasswordAuthentication() {
+
+                return new PasswordAuthentication("syyedmnawazshah@gmail.com", "ilovepakistan");
+
+            }
+
+        });
+
+        // Used to debug SMTP issues
+        session.setDebug(true);
+
+        try {
+            // Create a default MimeMessage object.
+            MimeMessage message = new MimeMessage(session);
+
+            // Set From: header field of the header.
+            message.setFrom(new InternetAddress(from));
+
+            // Set To: header field of the header.
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+            // Set Subject: header field
+            message.setSubject("List of all Dealers");
+
+            // Now set the actual message
+            Multipart multipart = new MimeMultipart();
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            String msg = "file attached. ";
+            messageBodyPart.setText(msg, "utf-8", "html");
+            multipart.addBodyPart(messageBodyPart);
+
+            MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+            try {
+                attachmentBodyPart.attachFile(file2.getAbsoluteFile(), "application/csv", null);
+            } catch (IOException ex) {
+                Logger.getLogger(PurchaseForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            multipart.addBodyPart(attachmentBodyPart);
+            message.setContent(multipart);
+            JOptionPane.showMessageDialog(this, "sending PDF File, It may take time ...", "Sending", JOptionPane.PLAIN_MESSAGE);
+
+            // Send message
+            Transport.send(message);
+            JOptionPane.showMessageDialog(this, "File sent successfully ...", "Sent", JOptionPane.PLAIN_MESSAGE);
+
+            if (file2.exists()) {
+                file2.delete();
+            }
+
+        } catch (MessagingException mex) {
+            System.out.println(mex);
+        }
     }//GEN-LAST:event_refreshBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
@@ -436,6 +540,95 @@ public class DealerForm extends javax.swing.JFrame {
             searchTf2.setText("");
         }
     }//GEN-LAST:event_searchTf2FocusGained
+    File file;
+    private void mailBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mailBtnActionPerformed
+        try {
+            JasperPrint jprint;
+
+            jprint = JasperFillManager.fillReport(locationPDF, null, DBConnection.getConnection());
+
+            file = new File(System.getProperty("user.home") + "\\OneDrive\\Desktop\\dealers.pdf");
+
+            JasperExportManager.exportReportToPdfFile(jprint, file.getAbsolutePath());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+        String to = "mnawazshah49@gmail.com";
+
+        // Sender's email ID needs to be mentioned
+        String from = "syyedmnawazshah@gmail.com";
+
+        // Assuming you are sending email from through gmails smtp
+        String host = "smtp.gmail.com";
+
+        // Get system properties
+        Properties properties = System.getProperties();
+
+        // Setup mail server
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", "465");
+        properties.put("mail.smtp.ssl.enable", "true");
+        properties.put("mail.smtp.auth", "true");
+
+        // Get the Session object.// and pass username and password
+        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+
+            protected PasswordAuthentication getPasswordAuthentication() {
+
+                return new PasswordAuthentication("syyedmnawazshah@gmail.com", "ilovepakistan");
+
+            }
+
+        });
+
+        // Used to debug SMTP issues
+        session.setDebug(true);
+
+        try {
+            // Create a default MimeMessage object.
+            MimeMessage message = new MimeMessage(session);
+
+            // Set From: header field of the header.
+            message.setFrom(new InternetAddress(from));
+
+            // Set To: header field of the header.
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+            // Set Subject: header field
+            message.setSubject("List of all Dealers");
+
+            // Now set the actual message
+            Multipart multipart = new MimeMultipart();
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            String msg = "file attached. ";
+            messageBodyPart.setText(msg, "utf-8", "html");
+            multipart.addBodyPart(messageBodyPart);
+
+            MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+            try {
+                attachmentBodyPart.attachFile(file.getAbsoluteFile(), "application/pdf", null);
+            } catch (IOException ex) {
+                Logger.getLogger(PurchaseForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            multipart.addBodyPart(attachmentBodyPart);
+            message.setContent(multipart);
+            JOptionPane.showMessageDialog(this, "sending PDF File, It may take time ...", "Sending", JOptionPane.PLAIN_MESSAGE);
+
+            // Send message
+            Transport.send(message);
+            JOptionPane.showMessageDialog(this, "File sent successfully ...", "Sent", JOptionPane.PLAIN_MESSAGE);
+
+            if (file.exists()) {
+                file.delete();
+            }
+
+        } catch (MessagingException mex) {
+            System.out.println(mex);
+        }
+    }//GEN-LAST:event_mailBtnActionPerformed
 
     public void getDealers() {
         try {
@@ -518,7 +711,6 @@ public class DealerForm extends javax.swing.JFrame {
     private javax.swing.JButton mailBtn;
     private javax.swing.JButton pdfBtn;
     private javax.swing.JButton refreshBtn;
-    private javax.swing.JTextField searchTf;
     private javax.swing.JTextField searchTf2;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables

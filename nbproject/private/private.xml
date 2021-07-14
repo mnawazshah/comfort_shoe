@@ -12,11 +12,12 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/ShoeManagementSystem/src/shoemanagementsystem/SalesFrame.java</file>
             <file>file:/E:/ShoeManagementSystem/src/shoemanagementsystem/MainMenuFrame.java</file>
-            <file>file:/E:/ShoeManagementSystem/src/shoemanagementsystem/Dashboard.java</file>
-            <file>file:/E:/ShoeManagementSystem/src/shoemanagementsystem/StockFrame.java</file>
-            <file>file:/E:/ShoeManagementSystem/src/shoemanagementsystem/DealerForm.java</file>
-            <file>file:/E:/ShoeManagementSystem/src/shoemanagementsystem/PurchaseForm.java</file>
+            <file>file:/E:/ShoeManagementSystem/src/shoemanagementsystem/SelectSizeAndColor.java</file>
+            <file>file:/E:/ShoeManagementSystem/src/shoemanagementsystem/Settings.java</file>
+            <file>file:/E:/ShoeManagementSystem/src/shoemanagementsystem/AddBrand.java</file>
+            <file>file:/E:/ShoeManagementSystem/src/shoemanagementsystem/AddPurchase.java</file>
         </group>
     </open-files>
 </project-private>

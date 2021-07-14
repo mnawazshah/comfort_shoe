@@ -5,6 +5,8 @@
  */
 package shoemanagementsystem;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,6 +31,11 @@ public class UpdateDealer extends javax.swing.JFrame {
 
     public UpdateDealer() {
         initComponents();
+        dealersTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        dealersTable.getTableHeader().setOpaque(false);
+        dealersTable.getTableHeader().setBackground(new Color(187, 134, 252));
+        dealersTable.getTableHeader().setForeground(new Color(255, 255, 255));
+        dealersTable.setRowHeight(25);
         getAllDealers();
     }
 
@@ -43,9 +50,6 @@ public class UpdateDealer extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         idTf = new javax.swing.JTextField();
@@ -67,6 +71,9 @@ public class UpdateDealer extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         dealersTable = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -81,49 +88,11 @@ public class UpdateDealer extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel1.setBackground(new java.awt.Color(12, 12, 12));
 
-        jPanel3.setBackground(new java.awt.Color(10, 10, 10));
-        jPanel3.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(29, 29, 29));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Manage Dealers");
-
-        jButton8.setBackground(new java.awt.Color(10, 10, 10));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_left_25px.png"))); // NOI18N
-        jButton8.setBorderPainted(false);
-        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton8)
-                .addGap(371, 371, 371)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jPanel4.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel4.setBackground(new java.awt.Color(29, 29, 29));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add Dealer", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -132,11 +101,11 @@ public class UpdateDealer extends javax.swing.JFrame {
         jLabel2.setText("ID");
 
         idTf.setEditable(false);
-        idTf.setBackground(new java.awt.Color(18, 18, 18));
+        idTf.setBackground(new java.awt.Color(29, 29, 29));
         idTf.setForeground(new java.awt.Color(255, 255, 255));
         idTf.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        nameTf.setBackground(new java.awt.Color(18, 18, 18));
+        nameTf.setBackground(new java.awt.Color(29, 29, 29));
         nameTf.setForeground(new java.awt.Color(255, 255, 255));
         nameTf.setCaretColor(new java.awt.Color(255, 255, 255));
         nameTf.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -153,7 +122,7 @@ public class UpdateDealer extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Employee Name");
 
-        empNameTf.setBackground(new java.awt.Color(18, 18, 18));
+        empNameTf.setBackground(new java.awt.Color(29, 29, 29));
         empNameTf.setForeground(new java.awt.Color(255, 255, 255));
         empNameTf.setCaretColor(new java.awt.Color(255, 255, 255));
         empNameTf.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -166,7 +135,7 @@ public class UpdateDealer extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Email");
 
-        emailTf.setBackground(new java.awt.Color(18, 18, 18));
+        emailTf.setBackground(new java.awt.Color(29, 29, 29));
         emailTf.setForeground(new java.awt.Color(255, 255, 255));
         emailTf.setCaretColor(new java.awt.Color(255, 255, 255));
         emailTf.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -175,7 +144,7 @@ public class UpdateDealer extends javax.swing.JFrame {
             }
         });
 
-        contactTf.setBackground(new java.awt.Color(18, 18, 18));
+        contactTf.setBackground(new java.awt.Color(29, 29, 29));
         contactTf.setForeground(new java.awt.Color(255, 255, 255));
         contactTf.setCaretColor(new java.awt.Color(255, 255, 255));
         contactTf.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -188,7 +157,7 @@ public class UpdateDealer extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Contact#");
 
-        addressTf.setBackground(new java.awt.Color(18, 18, 18));
+        addressTf.setBackground(new java.awt.Color(29, 29, 29));
         addressTf.setForeground(new java.awt.Color(255, 255, 255));
         addressTf.setCaretColor(new java.awt.Color(255, 255, 255));
         addressTf.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -201,7 +170,7 @@ public class UpdateDealer extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Address");
 
-        cnicTf.setBackground(new java.awt.Color(18, 18, 18));
+        cnicTf.setBackground(new java.awt.Color(29, 29, 29));
         cnicTf.setForeground(new java.awt.Color(255, 255, 255));
         cnicTf.setCaretColor(new java.awt.Color(255, 255, 255));
         cnicTf.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -218,7 +187,7 @@ public class UpdateDealer extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Account#");
 
-        accountTf.setBackground(new java.awt.Color(18, 18, 18));
+        accountTf.setBackground(new java.awt.Color(29, 29, 29));
         accountTf.setForeground(new java.awt.Color(255, 255, 255));
         accountTf.setCaretColor(new java.awt.Color(255, 255, 255));
         accountTf.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -348,7 +317,6 @@ public class UpdateDealer extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -363,14 +331,53 @@ public class UpdateDealer extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(181, 181, 181))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(29, 29, 29));
+        jPanel3.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Manage Dealers");
+
+        jButton8.setBackground(new java.awt.Color(29, 29, 29));
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_left_25px.png"))); // NOI18N
+        jButton8.setBorderPainted(false);
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(393, 393, 393)
+                .addComponent(jLabel1)
+                .addContainerGap(391, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -378,12 +385,14 @@ public class UpdateDealer extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -57,9 +57,6 @@ public class AddEmployee extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         idTf = new javax.swing.JTextField();
@@ -82,6 +79,9 @@ public class AddEmployee extends javax.swing.JFrame {
         roleCb = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         employeeTable = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -96,52 +96,11 @@ public class AddEmployee extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel1.setBackground(new java.awt.Color(12, 12, 12));
 
-        jPanel3.setBackground(new java.awt.Color(10, 10, 10));
-        jPanel3.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(29, 29, 29));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Manage Employees");
-
-        jButton8.setBackground(new java.awt.Color(10, 10, 10));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_left_25px.png"))); // NOI18N
-        jButton8.setBorderPainted(false);
-        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton8)
-                .addGap(379, 379, 379)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 14, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-
-        jPanel4.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel4.setBackground(new java.awt.Color(29, 29, 29));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add Employee", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -150,12 +109,12 @@ public class AddEmployee extends javax.swing.JFrame {
         jLabel2.setText("ID");
 
         idTf.setEditable(false);
-        idTf.setBackground(new java.awt.Color(18, 18, 18));
+        idTf.setBackground(new java.awt.Color(29, 29, 29));
         idTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         idTf.setForeground(new java.awt.Color(255, 255, 255));
         idTf.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        nameTf.setBackground(new java.awt.Color(18, 18, 18));
+        nameTf.setBackground(new java.awt.Color(29, 29, 29));
         nameTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         nameTf.setForeground(new java.awt.Color(255, 255, 255));
         nameTf.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -173,7 +132,7 @@ public class AddEmployee extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email");
 
-        emailTf.setBackground(new java.awt.Color(18, 18, 18));
+        emailTf.setBackground(new java.awt.Color(29, 29, 29));
         emailTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         emailTf.setForeground(new java.awt.Color(255, 255, 255));
         emailTf.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -187,7 +146,7 @@ public class AddEmployee extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Contact");
 
-        contactTf.setBackground(new java.awt.Color(18, 18, 18));
+        contactTf.setBackground(new java.awt.Color(29, 29, 29));
         contactTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         contactTf.setForeground(new java.awt.Color(255, 255, 255));
         contactTf.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -197,7 +156,7 @@ public class AddEmployee extends javax.swing.JFrame {
             }
         });
 
-        qualificationTf.setBackground(new java.awt.Color(18, 18, 18));
+        qualificationTf.setBackground(new java.awt.Color(29, 29, 29));
         qualificationTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         qualificationTf.setForeground(new java.awt.Color(255, 255, 255));
         qualificationTf.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -215,7 +174,7 @@ public class AddEmployee extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Role");
 
-        salaryTf.setBackground(new java.awt.Color(18, 18, 18));
+        salaryTf.setBackground(new java.awt.Color(29, 29, 29));
         salaryTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         salaryTf.setForeground(new java.awt.Color(255, 255, 255));
         salaryTf.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -229,7 +188,7 @@ public class AddEmployee extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Salary");
 
-        usernameTf.setBackground(new java.awt.Color(18, 18, 18));
+        usernameTf.setBackground(new java.awt.Color(29, 29, 29));
         usernameTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         usernameTf.setForeground(new java.awt.Color(255, 255, 255));
         usernameTf.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -247,7 +206,7 @@ public class AddEmployee extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Password");
 
-        passwordTf.setBackground(new java.awt.Color(18, 18, 18));
+        passwordTf.setBackground(new java.awt.Color(29, 29, 29));
         passwordTf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         passwordTf.setForeground(new java.awt.Color(255, 255, 255));
         passwordTf.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -267,7 +226,7 @@ public class AddEmployee extends javax.swing.JFrame {
             }
         });
 
-        roleCb.setBackground(new java.awt.Color(18, 18, 18));
+        roleCb.setBackground(new java.awt.Color(29, 29, 29));
         roleCb.setForeground(new java.awt.Color(255, 255, 255));
         roleCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select role", "Manager", "Cashier" }));
         roleCb.addActionListener(new java.awt.event.ActionListener() {
@@ -381,7 +340,6 @@ public class AddEmployee extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(114, 114, 114)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -394,12 +352,54 @@ public class AddEmployee extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(29, 29, 29));
+        jPanel3.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Manage Employees");
+
+        jButton8.setBackground(new java.awt.Color(29, 29, 29));
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_left_25px.png"))); // NOI18N
+        jButton8.setBorderPainted(false);
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton8)
+                .addGap(379, 379, 379)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 14, Short.MAX_VALUE)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -407,12 +407,15 @@ public class AddEmployee extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -423,7 +426,7 @@ public class AddEmployee extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -494,8 +497,8 @@ int id = 0;
 
                 JOptionPane.showMessageDialog(null, "Data inserted successfuly", "Success", JOptionPane.INFORMATION_MESSAGE);
                 Refresh();
-                employeeTable.setRowSelectionInterval(id - 1, id - 1);
-                employeeTable.scrollRectToVisible(employeeTable.getCellRect(id - 1, 0, true));
+                employeeTable.setRowSelectionInterval(0, 0);
+               
                 getID();
             }
             }
@@ -716,7 +719,7 @@ int id = 0;
         try {
             conn = DBConnection.getConnection();
 
-            st = conn.prepareStatement("select * from employee_signup");
+            st = conn.prepareStatement("select * from employee_signup order by id desc");
             rs = st.executeQuery();
 
             while (rs.next()) {

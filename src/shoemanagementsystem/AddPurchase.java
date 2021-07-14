@@ -35,6 +35,7 @@ public class AddPurchase extends javax.swing.JFrame {
     ResultSet rs;
 
     ColorSizeFrame f;
+
     public AddPurchase() {
         initComponents();
 
@@ -72,9 +73,6 @@ public class AddPurchase extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         idTf = new javax.swing.JTextField();
@@ -100,56 +98,18 @@ public class AddPurchase extends javax.swing.JFrame {
         colorSize = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         productsTable = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel2.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel1.setBackground(new java.awt.Color(12, 12, 12));
 
-        jPanel3.setBackground(new java.awt.Color(10, 10, 10));
-        jPanel3.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(29, 29, 29));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Add product");
-
-        jButton8.setBackground(new java.awt.Color(10, 10, 10));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_left_25px.png"))); // NOI18N
-        jButton8.setBorderPainted(false);
-        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton8)
-                .addGap(370, 370, 370)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 14, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-
-        jPanel4.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel4.setBackground(new java.awt.Color(29, 29, 29));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add Product", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -158,11 +118,11 @@ public class AddPurchase extends javax.swing.JFrame {
         jLabel2.setText("ID");
 
         idTf.setEditable(false);
-        idTf.setBackground(new java.awt.Color(18, 18, 18));
+        idTf.setBackground(new java.awt.Color(29, 29, 29));
         idTf.setForeground(new java.awt.Color(255, 255, 255));
         idTf.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        codeTf.setBackground(new java.awt.Color(18, 18, 18));
+        codeTf.setBackground(new java.awt.Color(29, 29, 29));
         codeTf.setForeground(new java.awt.Color(255, 255, 255));
         codeTf.setCaretColor(new java.awt.Color(255, 255, 255));
         codeTf.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -205,7 +165,7 @@ public class AddPurchase extends javax.swing.JFrame {
             }
         });
 
-        categoryCb.setBackground(new java.awt.Color(18, 18, 18));
+        categoryCb.setBackground(new java.awt.Color(29, 29, 29));
         categoryCb.setForeground(new java.awt.Color(255, 255, 255));
         categoryCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Category", "Men", "Women" }));
         categoryCb.addActionListener(new java.awt.event.ActionListener() {
@@ -214,7 +174,7 @@ public class AddPurchase extends javax.swing.JFrame {
             }
         });
 
-        supplierCb.setBackground(new java.awt.Color(18, 18, 18));
+        supplierCb.setBackground(new java.awt.Color(29, 29, 29));
         supplierCb.setForeground(new java.awt.Color(255, 255, 255));
         supplierCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Supplier Company" }));
         supplierCb.addActionListener(new java.awt.event.ActionListener() {
@@ -223,7 +183,7 @@ public class AddPurchase extends javax.swing.JFrame {
             }
         });
 
-        nameTf.setBackground(new java.awt.Color(18, 18, 18));
+        nameTf.setBackground(new java.awt.Color(29, 29, 29));
         nameTf.setForeground(new java.awt.Color(255, 255, 255));
         nameTf.setCaretColor(new java.awt.Color(255, 255, 255));
         nameTf.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -232,14 +192,14 @@ public class AddPurchase extends javax.swing.JFrame {
             }
         });
 
-        typeCb.setBackground(new java.awt.Color(18, 18, 18));
+        typeCb.setBackground(new java.awt.Color(29, 29, 29));
         typeCb.setForeground(new java.awt.Color(255, 255, 255));
         typeCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a type" }));
 
-        brandCb.setBackground(new java.awt.Color(18, 18, 18));
+        brandCb.setBackground(new java.awt.Color(29, 29, 29));
         brandCb.setForeground(new java.awt.Color(255, 255, 255));
 
-        quantityTf.setBackground(new java.awt.Color(18, 18, 18));
+        quantityTf.setBackground(new java.awt.Color(29, 29, 29));
         quantityTf.setForeground(new java.awt.Color(255, 255, 255));
         quantityTf.setCaretColor(new java.awt.Color(255, 255, 255));
         quantityTf.addActionListener(new java.awt.event.ActionListener() {
@@ -252,7 +212,7 @@ public class AddPurchase extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Quantity");
 
-        priceTf.setBackground(new java.awt.Color(18, 18, 18));
+        priceTf.setBackground(new java.awt.Color(29, 29, 29));
         priceTf.setForeground(new java.awt.Color(255, 255, 255));
         priceTf.setCaretColor(new java.awt.Color(255, 255, 255));
         priceTf.addActionListener(new java.awt.event.ActionListener() {
@@ -275,7 +235,7 @@ public class AddPurchase extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Unit Price");
 
-        totalTf.setBackground(new java.awt.Color(18, 18, 18));
+        totalTf.setBackground(new java.awt.Color(29, 29, 29));
         totalTf.setForeground(new java.awt.Color(255, 255, 255));
         totalTf.setCaretColor(new java.awt.Color(255, 255, 255));
         totalTf.addActionListener(new java.awt.event.ActionListener() {
@@ -431,7 +391,6 @@ public class AddPurchase extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -445,12 +404,54 @@ public class AddPurchase extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(29, 29, 29));
+        jPanel3.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Add product");
+
+        jButton8.setBackground(new java.awt.Color(29, 29, 29));
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/demeImages/icons8_left_25px.png"))); // NOI18N
+        jButton8.setBorderPainted(false);
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton8)
+                .addGap(370, 370, 370)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 14, Short.MAX_VALUE)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -460,12 +461,14 @@ public class AddPurchase extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -633,26 +636,23 @@ public class AddPurchase extends javax.swing.JFrame {
     void AddProduct() {
         if (codeTf.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Enter product code", "Empty", JOptionPane.WARNING_MESSAGE);
-        }
-       else if (nameTf.getText().isEmpty()) {
+        } else if (nameTf.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Enter product name", "Empty", JOptionPane.WARNING_MESSAGE);
 
         } else if (categoryCb.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(this, "Select a category first", "Empty", JOptionPane.WARNING_MESSAGE);
 
-        } 
-//        else if (typeCb.getSelectedIndex() == 0) {
-//            JOptionPane.showMessageDialog(this, "Select a type", "Empty", JOptionPane.WARNING_MESSAGE);
-//
-//        }
+        } //        else if (typeCb.getSelectedIndex() == 0) {
+        //            JOptionPane.showMessageDialog(this, "Select a type", "Empty", JOptionPane.WARNING_MESSAGE);
+        //
+        //        }
         else if (supplierCb.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(this, "Select a supplier", "Empty", JOptionPane.WARNING_MESSAGE);
 
-        }
-//        else if (brandCb.getSelectedIndex() == 0) {
-//            JOptionPane.showMessageDialog(this, "Select a brand", "Empty", JOptionPane.WARNING_MESSAGE);
-//
-//        }
+        } //        else if (brandCb.getSelectedIndex() == 0) {
+        //            JOptionPane.showMessageDialog(this, "Select a brand", "Empty", JOptionPane.WARNING_MESSAGE);
+        //
+        //        }
         else if (quantityTf.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Enter Product Quantity", "Empty", JOptionPane.WARNING_MESSAGE);
 
@@ -660,54 +660,100 @@ public class AddPurchase extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Enter Unit price", "Empty", JOptionPane.WARNING_MESSAGE);
 
         } else {
-            
 
             try {
-                st = conn.prepareStatement("select * from colorsizemen where p_code=?");
-                st.setString(1, codeTf.getText());
 
-                rs=st.executeQuery();
-                
-                st = conn.prepareStatement("select * from colorsizewomen where p_code=?");
-                st.setString(1, codeTf.getText());
-                rs=st.executeQuery();
-                
-                
-                if (!rs.next()) {
-                    JOptionPane.showMessageDialog(this, "Select Color and size for the product", "Eror", JOptionPane.ERROR_MESSAGE);
+                if (categoryCb.getSelectedIndex() == 1) {
+
+                    st = conn.prepareStatement("select * from colorsizemen where p_code=?");
+                    st.setString(1, codeTf.getText());
+
+                    rs = st.executeQuery();
+                    if (!rs.next()) {
+                        JOptionPane.showMessageDialog(this, "Select Color and size for the product", "Eror", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        st = conn.prepareStatement("insert into stock values(?,?,?,?,?,?,?,?,?,?,curdate(),curtime())");
+
+                        st.setInt(1, Integer.valueOf(idTf.getText()));
+                        st.setString(2, codeTf.getText());
+                        st.setString(3, nameTf.getText());
+                        st.setString(4, categoryCb.getSelectedItem().toString());
+                        st.setString(5, typeCb.getSelectedItem().toString());
+                        st.setString(6, supplierCb.getSelectedItem().toString());
+                        st.setString(7, brandCb.getSelectedItem().toString());
+
+                        st.setInt(8, Integer.valueOf(quantityTf.getText()));
+                        st.setInt(9, Integer.valueOf(priceTf.getText()));
+                        st.setInt(10, Integer.valueOf(totalTf.getText()));
+
+                        st.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "Data inserted successfuly", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        Refresh();
+                        productsTable.setRowSelectionInterval(id - 1, id - 1);
+                        productsTable.scrollRectToVisible(productsTable.getCellRect(id - 1, 0, true));
+
+                        getID();
+                    }
+                } else if (categoryCb.getSelectedIndex() == 2) {
+
+                    st = conn.prepareStatement("select * from colorsizewomen where p_code=?");
+                    st.setString(1, codeTf.getText());
+                    rs = st.executeQuery();
+
+                    if (!rs.next()) {
+                        JOptionPane.showMessageDialog(this, "Select Color and size for the product", "Eror", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        st = conn.prepareStatement("insert into stock values(?,?,?,?,?,?,?,?,?,?,curdate(),curtime())");
+
+                        st.setInt(1, Integer.valueOf(idTf.getText()));
+                        st.setString(2, codeTf.getText());
+                        st.setString(3, nameTf.getText());
+                        st.setString(4, categoryCb.getSelectedItem().toString());
+                        st.setString(5, typeCb.getSelectedItem().toString());
+                        st.setString(6, supplierCb.getSelectedItem().toString());
+                        st.setString(7, brandCb.getSelectedItem().toString());
+
+                        st.setInt(8, Integer.valueOf(quantityTf.getText()));
+                        st.setInt(9, Integer.valueOf(priceTf.getText()));
+                        st.setInt(10, Integer.valueOf(totalTf.getText()));
+
+                        st.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "Data inserted successfuly", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        Refresh();
+                        productsTable.setRowSelectionInterval(id - 1, id - 1);
+                        productsTable.scrollRectToVisible(productsTable.getCellRect(id - 1, 0, true));
+
+                        getID();
+                    }
                 }
-                else if (!rs.next()) {
-                    JOptionPane.showMessageDialog(this, "Select Color and size for the product", "Eror", JOptionPane.ERROR_MESSAGE);
-                }
-                else 
-                {
-                    st = conn.prepareStatement("insert into stock values(?,?,?,?,?,?,?,?,?,?,curdate(),curtime())");
-                    
-                    st.setInt(1, Integer.valueOf(idTf.getText()));
-                    st.setString(2, codeTf.getText());
-                    st.setString(3, nameTf.getText());
-                    st.setString(4, categoryCb.getSelectedItem().toString());
-                    st.setString(5, typeCb.getSelectedItem().toString());
-                    st.setString(6, supplierCb.getSelectedItem().toString());
-                    st.setString(7, brandCb.getSelectedItem().toString());
-                    
-                    st.setInt(8, Integer.valueOf(quantityTf.getText()));
-                    st.setInt(9, Integer.valueOf(priceTf.getText()));
-                    st.setInt(10, Integer.valueOf(totalTf.getText()));
-                    
-                    st.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "Data inserted successfuly", "Success", JOptionPane.INFORMATION_MESSAGE);
-                    Refresh();
-                    productsTable.setRowSelectionInterval(id - 1, id - 1);
-                    productsTable.scrollRectToVisible(productsTable.getCellRect(id - 1, 0, true));
-                    
-                    getID();
-                    
-                } 
+//                else {
+//                    st = conn.prepareStatement("insert into stock values(?,?,?,?,?,?,?,?,?,?,curdate(),curtime())");
+//
+//                    st.setInt(1, Integer.valueOf(idTf.getText()));
+//                    st.setString(2, codeTf.getText());
+//                    st.setString(3, nameTf.getText());
+//                    st.setString(4, categoryCb.getSelectedItem().toString());
+//                    st.setString(5, typeCb.getSelectedItem().toString());
+//                    st.setString(6, supplierCb.getSelectedItem().toString());
+//                    st.setString(7, brandCb.getSelectedItem().toString());
+//
+//                    st.setInt(8, Integer.valueOf(quantityTf.getText()));
+//                    st.setInt(9, Integer.valueOf(priceTf.getText()));
+//                    st.setInt(10, Integer.valueOf(totalTf.getText()));
+//
+//                    st.executeUpdate();
+//                    JOptionPane.showMessageDialog(null, "Data inserted successfuly", "Success", JOptionPane.INFORMATION_MESSAGE);
+//                    Refresh();
+//                    productsTable.setRowSelectionInterval(id - 1, id - 1);
+//                    productsTable.scrollRectToVisible(productsTable.getCellRect(id - 1, 0, true));
+//
+//                    getID();
+//
+//                }
             } catch (SQLException ex) {
                 Logger.getLogger(AddPurchase.class.getName()).log(Level.SEVERE, null, ex);
             }
-        
+
         }
     }
 

@@ -60,47 +60,50 @@ public class MainMenuFrame extends javax.swing.JFrame {
     Font exitFont = new Font("Segoe UI", Font.PLAIN, 14);
 
     // defining icons
-    ImageIcon dashboardWhite = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_dashboard_80px_1.png");
-    ImageIcon dashboardPurple = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_dashboard_80px.png");
+    ImageIcon dashboardWhite = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_dashboard_80px_1.png");
+    ImageIcon dashboardPurple = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_dashboard_80px.png");
 
-    ImageIcon salePurple = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_sell_stock_80px.png");
-    ImageIcon saleWhite = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_sell_stock_80px_1.png");
+    ImageIcon salePurple = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_sell_stock_80px.png");
+    ImageIcon saleWhite = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_sell_stock_80px_1.png");
 
-    ImageIcon purchaseWhite = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_card_payment_80px_1.png");
-    ImageIcon purchasePurple = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_card_payment_80px.png");
+    ImageIcon purchaseWhite = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_card_payment_80px_1.png");
+    ImageIcon purchasePurple = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_card_payment_80px.png");
 
-    ImageIcon empPurple = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_management_80px.png");
-    ImageIcon empWhite = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_management_80px_1.png");
+    ImageIcon empPurple = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_management_80px.png");
+    ImageIcon empWhite = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_management_80px_1.png");
 
-    ImageIcon stockWhite = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_warehouse_80px_1.png");
-    ImageIcon stockPurple = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_warehouse_80px.png");
+    ImageIcon stockWhite = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_warehouse_80px_1.png");
+    ImageIcon stockPurple = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_warehouse_80px.png");
 
-    ImageIcon dealerWhite = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_supplier_80px_1.png");
-    ImageIcon dealerPurple = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_supplier_80px.png");
+    ImageIcon dealerWhite = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_supplier_80px_1.png");
+    ImageIcon dealerPurple = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_supplier_80px.png");
 
-    ImageIcon reportPurple = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_account_80px.png");
-    ImageIcon reportWhite = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_account_80px_1.png");
+    ImageIcon reportPurple = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_account_80px.png");
+    ImageIcon reportWhite = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_account_80px_1.png");
 
-    ImageIcon brandsWhite = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_related_companies_80px.png");
-    ImageIcon brandsPurple = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_related_companies_80px_1.png");
+    ImageIcon brandsWhite = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_related_companies_80px.png");
+    ImageIcon brandsPurple = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_related_companies_80px_1.png");
 
-    ImageIcon databaseWhite = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_database_administrator_80px.png");
-    ImageIcon databasePurple = new ImageIcon("E:\\ShoeManagementSystem\\src\\demeImages\\icons8_database_administrator_80px_2.png");
+    ImageIcon databaseWhite = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_database_administrator_80px.png");
+    ImageIcon databasePurple = new ImageIcon(System.getProperty("user.dir")+"\\src\\demeImages\\icons8_database_administrator_80px_2.png");
 
     JPopupMenu menu = new JPopupMenu();
     JMenuItem item1 = new JMenuItem("Upload Profile Picture");
     JMenuItem item2 = new JMenuItem("Change profile picture");
+    JMenuItem item3 = new JMenuItem("View Login History");
 
     String filename;
     Byte[] image;
     
 
     public MainMenuFrame() {
+        
         initComponents();
         showDateTime();
         conn = DBConnection.getConnection();
         menu.add(item1);
         menu.add(item2);
+        menu.add(item3);
         setProfilePicture();
 
         item1.addActionListener(new ActionListener() {
@@ -163,6 +166,16 @@ public class MainMenuFrame extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     Logger.getLogger(MainMenuFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            }
+        });
+        
+        item3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            LoginHistoryFrame history=   new LoginHistoryFrame();
+            history.setVisible(true);
+            history.setLocationRelativeTo(null);
+            menu.setVisible(false);
             }
         });
        
@@ -351,6 +364,9 @@ public class MainMenuFrame extends javax.swing.JFrame {
         Sales.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Sales.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         Sales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SalesMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 SalesMouseEntered(evt);
             }
@@ -402,6 +418,9 @@ public class MainMenuFrame extends javax.swing.JFrame {
         Stock.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Stock.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         Stock.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StockMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 StockMouseEntered(evt);
             }
@@ -693,7 +712,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
             menu.setVisible(true);
             menu.setLocation(evt.getXOnScreen(), evt.getYOnScreen());
 
-            System.out.println("wroking");
+            
         }
         if (evt.getButton() == MouseEvent.BUTTON1) {
             menu.setVisible(false);
@@ -757,6 +776,16 @@ public class MainMenuFrame extends javax.swing.JFrame {
       this.dispose();
       new Dashboard().setVisible(true);
     }//GEN-LAST:event_DashboardMouseClicked
+
+    private void StockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StockMouseClicked
+        this.dispose();
+        new StockFrame().setVisible(true);
+    }//GEN-LAST:event_StockMouseClicked
+
+    private void SalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalesMouseClicked
+        this.dispose();
+        new SalesFrame().setVisible(true);
+    }//GEN-LAST:event_SalesMouseClicked
 
     // this method is called inside EmployeeForm class to again set the username to the logged in user
     static void setUsername() {

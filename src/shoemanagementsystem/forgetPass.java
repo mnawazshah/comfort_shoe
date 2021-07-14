@@ -109,9 +109,8 @@ public class forgetPass extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         emailPanel = new javax.swing.JPanel();
         codeTF = new javax.swing.JTextField();
         sendBtn = new javax.swing.JButton();
@@ -127,6 +126,9 @@ public class forgetPass extends javax.swing.JFrame {
         confirmPassTf = new javax.swing.JPasswordField();
         newPassEyeBtn = new javax.swing.JButton();
         confirmPassEyeBtn = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -142,29 +144,15 @@ public class forgetPass extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel3.setBackground(new java.awt.Color(12, 12, 12));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Reset Password");
+        jPanel1.setBackground(new java.awt.Color(29, 29, 29));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("X");
-        jLabel4.setToolTipText("Close");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
-
-        emailPanel.setBackground(new java.awt.Color(18, 18, 18));
+        emailPanel.setBackground(new java.awt.Color(29, 29, 29));
         emailPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email Verification", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         emailPanel.setForeground(new java.awt.Color(255, 255, 255));
 
-        codeTF.setBackground(new java.awt.Color(18, 18, 18));
+        codeTF.setBackground(new java.awt.Color(29, 29, 29));
         codeTF.setForeground(new java.awt.Color(255, 255, 255));
         codeTF.setCaretColor(new java.awt.Color(255, 255, 255));
         codeTF.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -196,7 +184,7 @@ public class forgetPass extends javax.swing.JFrame {
         mailLbl.setForeground(new java.awt.Color(255, 255, 255));
         mailLbl.setText("Enter your email");
 
-        emailTF.setBackground(new java.awt.Color(18, 18, 18));
+        emailTF.setBackground(new java.awt.Color(29, 29, 29));
         emailTF.setForeground(new java.awt.Color(255, 255, 255));
         emailTF.setCaretColor(new java.awt.Color(255, 255, 255));
         emailTF.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -223,20 +211,24 @@ public class forgetPass extends javax.swing.JFrame {
         emailPanelLayout.setHorizontalGroup(
             emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, emailPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(codeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sendBtn)
-                    .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(verifyBtn))
+                    .addGroup(emailPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sendBtn)
+                            .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(verifyBtn)))
+                    .addGroup(emailPanelLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(codeLbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(codeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(96, 96, 96))
             .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(emailPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(mailLbl)
-                        .addComponent(codeLbl))
-                    .addContainerGap(319, Short.MAX_VALUE)))
+                    .addGap(34, 34, 34)
+                    .addComponent(mailLbl)
+                    .addContainerGap(382, Short.MAX_VALUE)))
         );
         emailPanelLayout.setVerticalGroup(
             emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +238,9 @@ public class forgetPass extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(codeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(emailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codeLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(verifyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
@@ -254,12 +248,10 @@ public class forgetPass extends javax.swing.JFrame {
                 .addGroup(emailPanelLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(mailLbl)
-                    .addGap(76, 76, 76)
-                    .addComponent(codeLbl)
-                    .addContainerGap(54, Short.MAX_VALUE)))
+                    .addContainerGap(162, Short.MAX_VALUE)))
         );
 
-        passwordPanel.setBackground(new java.awt.Color(18, 18, 18));
+        passwordPanel.setBackground(new java.awt.Color(29, 29, 29));
         passwordPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password Verification", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         passwordPanel.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -286,7 +278,7 @@ public class forgetPass extends javax.swing.JFrame {
         confirmPassLbl.setForeground(new java.awt.Color(255, 255, 255));
         confirmPassLbl.setText("Confirm new password");
 
-        newPassTf.setBackground(new java.awt.Color(18, 18, 18));
+        newPassTf.setBackground(new java.awt.Color(29, 29, 29));
         newPassTf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         newPassTf.setForeground(new java.awt.Color(255, 255, 255));
         newPassTf.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -304,7 +296,7 @@ public class forgetPass extends javax.swing.JFrame {
             }
         });
 
-        confirmPassTf.setBackground(new java.awt.Color(18, 18, 18));
+        confirmPassTf.setBackground(new java.awt.Color(29, 29, 29));
         confirmPassTf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         confirmPassTf.setForeground(new java.awt.Color(255, 255, 255));
         confirmPassTf.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -341,12 +333,12 @@ public class forgetPass extends javax.swing.JFrame {
         passwordPanel.setLayout(passwordPanelLayout);
         passwordPanelLayout.setHorizontalGroup(
             passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(passwordPanelLayout.createSequentialGroup()
-                .addGap(4, 4, 4)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(confirmPassLbl)
-                    .addComponent(newPassLbl))
-                .addGap(48, 48, 48)
+                    .addComponent(newPassLbl)
+                    .addComponent(confirmPassLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(passwordPanelLayout.createSequentialGroup()
                         .addComponent(newPassTf, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,23 +350,24 @@ public class forgetPass extends javax.swing.JFrame {
                             .addComponent(confirmPassTf, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(confirmPassEyeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(58, 58, 58))
         );
         passwordPanelLayout.setVerticalGroup(
             passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(passwordPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(12, 12, 12)
                 .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(passwordPanelLayout.createSequentialGroup()
+                        .addComponent(newPassLbl)
+                        .addGap(53, 53, 53))
+                    .addGroup(passwordPanelLayout.createSequentialGroup()
                         .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(newPassLbl)
-                                .addComponent(newPassTf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(newPassTf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(newPassEyeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(21, 21, 21)
                         .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(confirmPassLbl)
-                            .addComponent(confirmPassTf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(confirmPassTf, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(confirmPassLbl)))
                     .addComponent(confirmPassEyeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(doneBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,41 +379,87 @@ public class forgetPass extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(241, 241, 241)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(emailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(passwordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(emailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(passwordPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(29, 29, 29));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Reset Password");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("X");
+        jLabel4.setToolTipText("Close");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(214, 214, 214)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -545,6 +584,7 @@ public class forgetPass extends javax.swing.JFrame {
                 message.setText("Your reset password verification code is " + code);
                 JOptionPane.showMessageDialog(this, "sending verification code, It may take time ...", "Sending", JOptionPane.PLAIN_MESSAGE);
 
+               
                 // Send message
                 Transport.send(message);
                 JOptionPane.showMessageDialog(this, "Code sent successfully ...", "Sent", JOptionPane.PLAIN_MESSAGE);
@@ -735,6 +775,8 @@ public class forgetPass extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel mailLbl;
     private javax.swing.JButton newPassEyeBtn;
     private javax.swing.JLabel newPassLbl;

@@ -44,7 +44,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        Image a = Toolkit.getDefaultToolkit().getImage("E:\\ShoeManagementSystem\\src\\Images\\SSMS-200.jpg");
+        Image a = Toolkit.getDefaultToolkit().getImage("\\Images\\SSMS-200.jpg");
         setIconImage(a);
         capsLock.setVisible(false);
 
@@ -210,7 +210,7 @@ public class LoginPage extends javax.swing.JFrame {
         });
         jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 273, 176, 34));
 
-        visibleBtn.setBackground(new java.awt.Color(31, 31, 31));
+        visibleBtn.setBackground(new java.awt.Color(29, 29, 29));
         visibleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_eye_20px.png"))); // NOI18N
         visibleBtn.setToolTipText("show/hide password");
         visibleBtn.setBorder(null);
@@ -226,9 +226,9 @@ public class LoginPage extends javax.swing.JFrame {
         });
         jPanel1.add(visibleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 20, 20));
 
-        jLabel5.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel5.setBackground(new java.awt.Color(29, 29, 29));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SMSS-2000000.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 116, 164, 130));
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -514,6 +514,7 @@ public class LoginPage extends javax.swing.JFrame {
             Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    int primaryID;
 
     void login() {
         if (usernameFld.getText().isEmpty() || String.valueOf(passwordFld.getPassword()).isEmpty()) {
@@ -534,8 +535,17 @@ public class LoginPage extends javax.swing.JFrame {
                     String name = rs.getString("o_name");
                     JOptionPane.showMessageDialog(this, "Valid cradentials...");
 
-                    String sql = "insert into owner_login(o_id,login_time,login_date) values(" + id + ",curtime(),curdate())";
+                    st = conn.prepareStatement("select max(id) from owner_login");
+                    rs = st.executeQuery();
+                    if (rs.next()) {
+                        int id=rs.getInt(1);
+                        primaryID = id + 1;
+                    }
+                    String sql = "insert into owner_login(id,o_id,login_time,login_date) values(?,?,curtime(),curdate())";
+
                     st = conn.prepareStatement(sql);
+                    st.setInt(1, primaryID);
+                    st.setInt(2, id);
                     st.execute();
 
                     userdetails.userId(id);
@@ -548,7 +558,7 @@ public class LoginPage extends javax.swing.JFrame {
                     MainMenuFrame.setUsername();
 
                 } else {
-                    JOptionPane.showMessageDialog(this, "Invalid cradentials, TRY AGAIN...");
+                    JOptionPane.showMessageDialog(this, "Invalid cradentials, TRY AGAIN...","Invalid",JOptionPane.ERROR_MESSAGE);
 
                 }
             } catch (SQLException ex) {
